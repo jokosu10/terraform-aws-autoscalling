@@ -1,11 +1,11 @@
 variable "server_port" {
-  description = "The port the web server will be listening"
+  description = "The server port the web server will be listening"
   type        = number
   default     = 8080
 }
 
 variable "http_port" {
-  description = "The port the sweb erver will be listening"
+  description = "The http port the web erver will be listening"
   type        = number
   default     = 8080
 }
@@ -77,7 +77,7 @@ resource "aws_autoscaling_group" "asg-aws-ug" {
   max_size = 5
 
   load_balancers    = [aws_elb.aws-ug.name]
-  health_check_type = "ELB"
+  health_check_type = "EC2"
 
   tag {
     key                 = "Name"
